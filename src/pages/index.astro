@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import GitHubIcon from "../components/icons/GitHub.astro"
+import MailIcon from "../components/icons/Mail.astro";
+import SocialPill from "../components/SocialPill.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Project from "../components/Project.astro";
+import TitleSection from "../components/TitleSection.astro";
+import AboutMe from "../components/AboutMe.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro"
+---
+
+<Layout title="Porfolio de David - Desarrollador y Programador Web">
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-24">
+			<img class="rounded-full size-12 mb-4" src="/projects/pngegg(1) (1).jpg" alt="david foto">
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+				Hey, soy David <div class="flex justify-center items-center"><Badge>Disponible para trabajar</Badge></div>
+			</h1>
+			<h2 class="text-xl lg:text-3xl opacity-80 text-wrap max-w-[700px]">
+				Un apasionado <span class="text-blue-400/90">Desarrollador Web Autodidacta</span> 💻 con experiencia en la creación de páginas web utilizando  <span class="text-green-300/90">HTML</span>, <span class="text-purple-300/90">CSS</span> y <span class="text-yellow-300/90">JavaScript</span>. Aunque aún no he trabajado profesionalmente, he dedicado muchas horas a aprender y practicar por mi cuenta.
+			</h2>
+			<nav class="flex gap-4 mt-6 flex-wrap">
+				<SocialPill href="https://github.com/vl4kc">
+					<GitHubIcon class="size-4 md:size-6"/> GitHub
+				</SocialPill>
+				<SocialPill href="mailto:david.ruiz.g@outlook.com">
+					<MailIcon class="size-4 md:size-6"/> david.ruiz.g@outlook.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+		<SectionContainer id="proyectos">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<CodeIcon class="size-7"/>
+				Proyectos
+			</h2>
+			<Project/>
+		</SectionContainer>
+		<SectionContainer id="sobre-mi">
+			<TitleSection>
+				<ProfileCheck class="size-8"/>
+				Sobre mí
+			</TitleSection>
+			<AboutMe/>
+		</SectionContainer>
+	</main>
+</Layout>

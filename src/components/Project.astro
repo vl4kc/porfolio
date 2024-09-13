@@ -1,0 +1,98 @@
+---
+import HTML from "./icons/HTML.astro";
+import CSS from "./icons/CSS.astro";
+import GitHub from "./icons/GitHub.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+
+const TAGS = {
+    HTML: {
+        name: "HTML5",
+        class: "bg-[#ff8166de] text-white",
+        icon: HTML,
+    },
+    CSS: {
+        name: "CSS3",
+        class: "bg-[#60a5fade] text-white",
+        icon: CSS,
+    },
+};
+
+const PROJECT = [
+    {
+        title: "Blog de Café - Consejos y Cursos",
+        description:
+            "Creé un blog de café con recetas, consejos y cursos para mejorar la preparación en casa y fomentar una comunidad apasionada por esta bebida.",
+        link: "https://ornate-selkie-8ed916.netlify.app",
+        github: "https://github.com/vl4kc/Blog-Cafe",
+        image: "/projects/blog-cafe.webp",
+        tags: [TAGS.HTML, TAGS.CSS],
+    },
+    {
+        title: "Tienda Web - Polos con estanpados",
+        description:
+            "Creé una tienda de polos con logos de lenguajes de frontend, ideal para desarrolladores que quieren mostrar su pasión por la programación.",
+        link: "https://charming-kitsune-420b5f.netlify.app",
+        github: "https://github.com/vl4kc/Tienda-Web",
+        image: "/projects/tienda-web.webp",
+        tags: [TAGS.HTML, TAGS.CSS],
+    },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+    {
+        PROJECT.map(({ image, title, description, tags, link, github }) => (
+            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                <div class="w-full md:w-1/2">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                        <img
+                            alt="Recién llegado vs 5 años en Nueva Zelanda"
+                            class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                            loading="lazy"
+                            src={image}
+                        />
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 md:max-w-lg">
+                    <h3 class="text-2xl font-bold text-white white:text-dark">
+                        {title}
+                    </h3>
+                    <div class="flex flex-wrap mt-2">
+                        <ul class="flex flex-row mb-2 gap-x-2">
+                            {tags.map((tag) => (
+                                <li>
+                                    <span
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                                    >
+                                        <tag.icon class="size-4" />
+                                        {tag.name}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div class="mt-2 text-white/80 dark:text-gray-400">
+                            {description}
+                        </div>
+                        <footer class="flex items-end justify-start mt-4 gap-x-4">
+                            {github && (
+                                <LinkButton href={github}>
+                                    <GitHub class="size-6" />
+                                    Code
+                                </LinkButton>
+                            )}
+                            {link && (
+                                <LinkButton href={link}>
+                                    <Link class="size-4" />
+                                    Preview
+                                </LinkButton>
+                            )}
+                        </footer>
+                    </div>
+                </div>
+            </article>
+        ))
+    }
+</div>
